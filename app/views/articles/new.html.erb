@@ -1,6 +1,9 @@
 <div class="container">
   <h1>Crear articulo</h1>
   <%= form_for @articles do |f| %>
+    <% @articles.errors.full_messages.each do |message| %>
+      <div class="alert alert-warning" role="alert"><%= message %></div>
+    <% end %>
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
@@ -18,5 +21,5 @@
         </div>
       </div>
     </div>
-  <%end%>
+  <% end %>
 </div>
