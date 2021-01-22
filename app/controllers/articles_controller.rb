@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   # post "/articles"
   def create
     # @articles = Article.new(title: params[:article][:title], body: params[:article][:body])
-    @articles = Article.new(article_params) # Llamando a article_params, para insertar
+    @articles = current_user.articles.new(article_params) # Llamando a article_params, para insertar
 
     if @articles.save
       redirect_to @articles

@@ -1,4 +1,9 @@
 <h1><%= @articles.title %></h1>
+<% unless @articles.user.nil? %>
+  <p>
+    Escrito por : <%= @articles.user.email%>
+  </p>
+<% end %>
 <div>
   <%= @articles.body %>
 </div>
