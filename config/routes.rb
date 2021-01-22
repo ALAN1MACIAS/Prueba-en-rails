@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   # -------- CRUD'S ---------
   resources :articles
   #   get "/articles" => Index
