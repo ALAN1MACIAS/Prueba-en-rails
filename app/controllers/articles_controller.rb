@@ -1,43 +1,40 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except:  [:show, :index]
+  before_action :set_article, except: [:index, :new, :create]
 
-  # get "/articles"
   def index
-    @articles = Article.all # Obtener todos los registros
+    @articles = Article.all
   end
-  # get "/articles/:id"
+
   def show
-    @articles = Article.find(params[:id]) # Encuentra un registro por su ID
+    @articles.update_visits_count
   end
-  # get "/articles/new"
+
   def new
     @articles = Article.new
   end
-  # post "/articles"
-  def create
-    # @articles = Article.new(title: params[:article][:title], body: params[:article][:body])
-    @articles = current_user.articles.new(article_params) # Llamando a article_params, para insertar
 
+  def create
+    @articles = current_user.articles.new(article_params)
     if @articles.save
       redirect_to @articles
     else
-      render :new # Haciendo render de la accion new
+      render :new
     end
   end
-  # get "/articles/:id/edit"
+
   def edit
-    @articles = Article.find(params[:id])
   end
-  # delete "/articles/:id"
+
   def destroy
-    @articles = Article.find(params[:id]) # Elimina el objeto de la DB
     if @articles.destroy
       redirect_to articles_path
     else
       redirect_to @articles
     end
   end
+
   def update
-    @articles = Article.find(params[:id])
     if @articles.update_attributes(article_params)
       redirect_to @articles
     else
@@ -45,10 +42,12 @@ class ArticlesController < ApplicationController
     end
   end
   
-  
   private
+    def set_article
+      @articles = Article.find(params[:id])
+    end
+
     def article_params
-      # Indica que campos estan permitidos insertar, para evitar inyecciones SQL
       params.require(:article).permit(:title,:body)
     end
 end
