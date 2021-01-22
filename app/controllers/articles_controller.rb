@@ -23,6 +23,11 @@ class ArticlesController < ApplicationController
       render :new # Haciendo render de la accion new
     end
   end
+  # get "/articles/:id/edit"
+  def edit
+    @articles = Article.find(params[:id])
+  end
+  # delete "/articles/:id"
   def destroy
     @articles = Article.find(params[:id]) # Elimina el objeto de la DB
     if @articles.destroy
@@ -31,6 +36,15 @@ class ArticlesController < ApplicationController
       redirect_to @articles
     end
   end
+  def update
+    @articles = Article.find(params[:id])
+    if @articles.update_attributes(article_params)
+      redirect_to @articles
+    else
+      redirect_to :edit
+    end
+  end
+  
   
   private
     def article_params
