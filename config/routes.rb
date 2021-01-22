@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :articles
   #   get "/articles" => Index
   #   post "/articles" => Create
-  #   delete "/articles" => Delete
+  #   delete "/articles/:id" => Destroy
   #   get "/articles/:id" => Show
   #   get "/articles/new" => New
   #   get "/articles/:id/edit" => Edit
