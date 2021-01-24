@@ -4,4 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :articles # Un usuario puede tener muchos articulos, FOREIGN KEY
+  has_many :comments
 end

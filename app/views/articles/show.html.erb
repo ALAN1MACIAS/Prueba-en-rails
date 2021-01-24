@@ -10,6 +10,15 @@
 <div>
   <%= @articles.body %>
 </div>
+<div class="col-md-12">
+  <h3>Comentarios</h3>
+  <%= render "comments/form" %>
+  <ul>
+  <% @articles.comments.each do |comment| %>
+    <li><%= comment.body %> - <%= comment.user.email %></li>
+  <%end%>
+  </ul>
+</div>
 <div>
   <%= link_to "Editar", edit_article_path(@articles) %>
 </div>

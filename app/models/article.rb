@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   belongs_to :user # Muchos articulos pueden tener un solo usuario, FOREIGN KEY
+  has_many :comments
   validates :title, presence: true, uniqueness: true # Valida que el elemencto no este vacio
   validates :body, presence: true, length: {minimum:20, maximum:250}
   before_save :set_visits_count
