@@ -23,6 +23,18 @@
       </div>
       <div class="col-md-12">
         <div class="form-group">
+          <label>Categorías</label>
+        </div>
+      </div>
+      <% @categories.each do |category|%>
+        <div class="col-md-2">
+          <div class="form-group">
+            <%= check_box_tag "categories[]", category.id %> <%= category.name %>
+          </div>
+        </div>
+      <%end%>
+      <div class="col-md-12">
+        <div class="form-group">
           <%= f.submit "Guardar", disable_with: 'Guardando...', class: "btn btn-sm btn-primary" %>
         </div>
       </div>

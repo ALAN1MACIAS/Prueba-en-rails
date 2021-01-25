@@ -4,6 +4,10 @@
     Escrito por: <%= @articles.user.email%>
   </p>
 <% end %>
+<% @articles.categories.each do |category| %>
+  <%= link_to category.name, category, style:"color: #{category.color};" %>
+<%end%>
+<br>
 <%= image_tag @articles.cover.url(:thumb) %>
 <p>
   Visitas: <%= @articles.visits_count%>

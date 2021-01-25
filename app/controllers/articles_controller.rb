@@ -17,6 +17,8 @@ class ArticlesController < ApplicationController
 
   def create
     @articles = current_user.articles.new(article_params)
+    @articles.categories = params[:categories]
+    #raise params.to_yaml #Dispara lo parametros que se le estan enviando
     if @articles.save
       redirect_to @articles
     else
@@ -49,6 +51,6 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:title,:body,:cover)
+      params.require(:article).permit(:title,:body,:cover,:categories)
     end
 end
