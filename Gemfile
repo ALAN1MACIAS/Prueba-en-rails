@@ -55,7 +55,6 @@ gem 'bootstrap-sass'
 gem 'bootstrap-material-design'
 
 gem 'coffee-rails', '~> 4.2'
-
 gem 'devise'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
