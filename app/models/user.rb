@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :articles # Un usuario puede tener muchos articulos, FOREIGN KEY
   has_many :comments
+  include PermissionsConcern
 end
