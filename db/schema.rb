@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_24_060035) do
+ActiveRecord::Schema.define(version: 2021_01_25_163217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,10 @@ ActiveRecord::Schema.define(version: 2021_01_24_060035) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.string "cover_file_name"
+    t.string "cover_content_type"
+    t.bigint "cover_file_size"
+    t.datetime "cover_updated_at"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 

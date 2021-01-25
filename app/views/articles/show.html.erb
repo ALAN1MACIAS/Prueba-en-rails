@@ -4,6 +4,7 @@
     Escrito por: <%= @articles.user.email%>
   </p>
 <% end %>
+<%= image_tag @articles.cover.url(:thumb) %>
 <p>
   Visitas: <%= @articles.visits_count%>
 </p>
