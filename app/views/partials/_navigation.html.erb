@@ -15,9 +15,10 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="#">Diseño</a></li>
-          <li><a href="#">Programación</a></li>
-          <li><a href="#">Tecnología</a></li>
+          <li><%= link_to "Artículos", articles_path %></li>
+          <%  @categories.each do |category| %>
+            <li><%= link_to category.name, category %></li>
+          <%end%>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
