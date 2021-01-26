@@ -3,7 +3,7 @@ class Article < ApplicationRecord
 
   belongs_to :user # Muchos articulos pueden tener un solo usuario, FOREIGN KEY
   has_many :comments
-  has_many :has_categories
+  has_many :has_categories, dependent: :delete_all
   has_many :categories, through: :has_categories
 
   validates :title, presence: true, uniqueness: true # Valida que el elemencto no este vacio
@@ -11,7 +11,7 @@ class Article < ApplicationRecord
   before_save :set_visits_count
   after_create :save_categories
 
-  has_attached_file :cover, styles: { medium: "1280x720", thumb: "800x600" } # Esto quiere decir que tiene un archivo adjunto
+  has_attached_file :cover, styles: { medium: "1280x720", thumb: "800x600", mini: "300x200" } # Esto quiere decir que tiene un archivo adjunto
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/ # Con esta expresion regular indicamos que se pueden subir todo de imagenes
 
   scope :publicados, -> { where(:state => "published") }

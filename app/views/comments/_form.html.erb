@@ -9,12 +9,12 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+  <div class="col-md-12">
+    <%= form.text_area :body, class:"form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="col-md-3">
+  <br>
+    <%= form.submit "Registrar", class:"form-control btn btn-primary" %>
   </div>
 <% end %>

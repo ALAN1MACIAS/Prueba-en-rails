@@ -1,11 +1,36 @@
-<p id="notice"><%= notice %></p>
-<h1 style="color:<%= @category.color %>;"><%= @category.name %></h1>
-<h2>Artículos</h2>
-<% @category.articles.each do |article| %>
-  <h3><%= link_to article.title, article %></h3>
-  <div>
-    <%= article.body %> - <%= link_to 'Eliminar', article, method: :delete %>
+<div class="container">
+
+<div class="row">
+  <div class="col-md-12">
+    <p id="notice"><%= notice %></p>
   </div>
-<%end%>
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+  <div class="col-md-12">
+    <h1 style="color:<%= @category.color %>;"><%= @category.name %></h1>
+  </div>
+  <div class="col-md-12">
+    <h2>Artículos</h2>
+  </div>
+  <% @category.articles.each do |article| %>
+
+        <div class="col-md-4">
+          <h1><%= link_to article.title, article %></h1>
+          <%= truncate(article.body,length: 30) %>
+          
+          <%= image_tag article.cover.url(:thumb),  class: "img-thumbnail" %>
+        </div>
+  <%end%>
+  <div class="col-md-12">
+    <%= link_to 'Edit', edit_category_path(@category) %> |
+    <%= link_to 'Back', categories_path %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+</div>

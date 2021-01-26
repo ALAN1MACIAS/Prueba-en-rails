@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
 
   def index
     # @articles = Article.all
-    @articles = Article.paginate(page: params[:page], per_page: 2).publicados.ultimos
+    @articles = Article.paginate(page: params[:page], per_page: 3).publicados.ultimos
   end
 
   def show

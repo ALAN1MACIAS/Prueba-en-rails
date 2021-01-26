@@ -59,7 +59,8 @@ gem 'devise'
 gem 'paperclip'
 gem 'aasm'
 
-gem 'will_paginate', "~> 3.1.7" 
+gem 'will_paginate', "~> 3.1.7"
+gem 'will_paginate-bootstrap4'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

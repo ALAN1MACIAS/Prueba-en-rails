@@ -1,7 +1,13 @@
-<% @articles.each do |article| %>
-  <h1><%= link_to article.title, article %></h1>
-  <div>
-    <%= article.body %>
+<div class="container">
+  <div class="row">
+    <% @articles.each do |article| %>
+      <div class="col-md-4">
+        <h1><%= link_to article.title, article %></h1>
+        <%= truncate(article.body,length: 30) %>
+        
+        <%= image_tag article.cover.url(:thumb),  class: "img-thumbnail" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
-<%= will_paginate @articles %>
+  <%= will_paginate @articles, list_classes: %w(pagination justify-content-end)  %>
+</div>
