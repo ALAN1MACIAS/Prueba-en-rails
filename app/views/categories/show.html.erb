@@ -11,7 +11,6 @@
     <h2>Artículos</h2>
   </div>
   <% @category.articles.each do |article| %>
-
         <div class="col-md-4">
           <h1><%= link_to article.title, article %></h1>
           <%= truncate(article.body,length: 30) %>
@@ -20,8 +19,8 @@
         </div>
   <%end%>
   <div class="col-md-12">
-    <%= link_to 'Edit', edit_category_path(@category) %> |
-    <%= link_to 'Back', categories_path %>
+    <%= link_to 'Editar', edit_category_path(@category) %> |
+    <%= link_to 'Atras', categories_path %>
   </div>
 </div>
 
