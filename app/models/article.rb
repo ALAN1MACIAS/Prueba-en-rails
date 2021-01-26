@@ -15,7 +15,7 @@ class Article < ApplicationRecord
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/ # Con esta expresion regular indicamos que se pueden subir todo de imagenes
 
   scope :publicados, -> { where(:state => "published") }
-  scope :ultimos, -> { order("created_at DESC").limit(10) }
+  scope :ultimos, -> { order("created_at DESC") }
 
   # Custom setter = Es un metodo que permite asignar valor al atrubuto de un objeto
   def categories=(value)
