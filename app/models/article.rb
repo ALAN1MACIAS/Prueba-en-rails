@@ -14,6 +14,9 @@ class Article < ApplicationRecord
   has_attached_file :cover, styles: { medium: "1280x720", thumb: "800x600" } # Esto quiere decir que tiene un archivo adjunto
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/ # Con esta expresion regular indicamos que se pueden subir todo de imagenes
 
+  scope :publicados, -> { where(:state => "published") }
+  scope :ultimos, -> { order("created_at DESC").limit(10) }
+
   # Custom setter = Es un metodo que permite asignar valor al atrubuto de un objeto
   def categories=(value)
     @categories = value
